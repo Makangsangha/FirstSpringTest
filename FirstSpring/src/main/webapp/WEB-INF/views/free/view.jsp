@@ -13,25 +13,26 @@
 	</div>
 
 	<div class="container">
-		<form name="newUpdate" action="" class="form-horizontal" method="post">
+		<form id="allForm" action="/free/update.do" class="form-horizontal" method="get">
+			<input type="hidden" value="${free.boNo }"  name="boNo">
 			<div class="form-group row">
 				<label class="col-sm-2 control-label" >제목</label>
 				<div class="col-sm-5">
-					<input name="subject" class="form-control"	value="" >
+					${free.boTitle }
 				</div>
 			</div>
 			<div class="form-group row">
 				<label class="col-sm-2 control-label" >내용</label>
 				<div class="col-sm-8" style="word-break: break-all;">
-					<textarea name="content" class="form-control" cols="50" rows="5"></textarea>
+					${free.boContent }
 				</div>
 			</div>
 			<div class="form-group row">
 				<div class="col-sm-offset-2 col-sm-10 ">
 					<p>
-						<a	href=""	class="btn btn-danger"> 삭제</a> 
+						<a id="delA"	href=""	class="btn btn-danger"> 삭제</a> 
 						<input type="submit" class="btn btn-success" value="수정 ">
-						<a href="" class="btn btn-primary"> 목록</a>
+						<a href="/free/list.do" class="btn btn-primary"> 목록</a>
 					</p>
 				</div>
 			</div>
@@ -39,6 +40,25 @@
 		<hr>
 	</div>
 </body>
+	<script src="${pageContext.request.contextPath}/resources/plugins/jquery/jquery.min.js"></script>
+	<script src="${pageContext.request.contextPath}/resources/ckeditor/ckeditor.js" type="text/javascript"></script>
+<script type="text/javascript">
+$(function(){
+	var delA = $("#delA");
+	
+	delA.on("click", function(event){
+		event.preventDefault();
+		if(confirm("정말 삭제하시겠습니까?")){
+			$("#allForm").attr('action', '/free/delete.do')
+			$("#allForm").attr('method', 'post')
+			$("#allForm").submit();
+		}else{
+			alert("삭제 취소");
+			delA.attr("href", '#');
+		}
+	});
+})
+</script>
 </html>
 
 

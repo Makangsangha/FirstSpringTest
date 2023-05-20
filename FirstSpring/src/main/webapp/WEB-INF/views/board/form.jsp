@@ -117,11 +117,11 @@
 							<div class="card-body">
 								<div class="form-group">
 									<label for="inputName">제목을 입력해주세요</label> 
-									<input type="text" id="boTitle" class="form-control" name="boTitle" value="${board.boTitle }" placeholder="제목을 입력해주세요">
+									<input maxlength="100" type="text" id="boTitle" class="form-control" name="boTitle" value="${board.boTitle }" placeholder="제목을 입력해주세요">
 								</div>
 								<div class="form-group">
 									<label for="inputDescription">내용을 입력해주세요</label>
-									<textarea id="boContent" class="form-control" rows="14" name="boContent">${board.boContent }</textarea>
+									<textarea maxlength="" id="boContent" class="form-control" rows="14" name="boContent">${board.boContent }</textarea>
 								</div>
 								<div class="row">
 									<div class="col-12">

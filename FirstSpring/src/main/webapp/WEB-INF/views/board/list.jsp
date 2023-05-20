@@ -108,6 +108,7 @@
 										<form class="input-group input-group-sm" method="post" id="searchForm" style="width: 440px;">
 											<input type="hidden" name="page" id="page" />
 											<select class="form-control" name="searchType">
+												<!-- c:if해서 만약에 해당 controller에서 받아온 값 searchType의 값이 title, writer이면 해당 값을 selected로 지정해준다 -->
 												<option value="title" <c:if test="${searchType == 'title' }"><c:out value="selected"/></c:if>>제목</option>
 												<option value="writer" <c:if test="${searchType == 'writer' }"><c:out value="selected"/></c:if>>작성자</option>
 											</select>
